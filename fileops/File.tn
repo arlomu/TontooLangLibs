@@ -1,0 +1,44 @@
+// File.tn — TontooSL File Operations
+// Nur extern func Deklarationen — C-Linking via clang
+
+extern func fopen(path: String, mode: String) -> Ptr
+extern func fclose(stream: Ptr) -> Int
+extern func fgets(buffer: Ptr, size: Int, stream: Ptr) -> Ptr
+extern func fputs(str: String, stream: Ptr) -> Int
+extern func feof(stream: Ptr) -> Int
+extern func fread(buffer: Ptr, size: Int, count: Int, stream: Ptr) -> Int
+extern func fwrite(data: Ptr, size: Int, count: Int, stream: Ptr) -> Int
+
+extern func remove(path: String) -> Int
+extern func rename(old_path: String, new_path: String) -> Int
+
+extern func stat(path: String, buf: Ptr) -> Int
+extern func mkdir(path: String, mode: Int) -> Int
+extern func rmdir(path: String) -> Int
+extern func opendir(path: String) -> Ptr
+extern func readdir(dir: Ptr) -> Ptr
+extern func closedir(dir: Ptr) -> Int
+
+extern func getcwd(buffer: Ptr, size: Int) -> Ptr
+extern func chdir(path: String) -> Int
+extern func realpath(path: String, resolved: Ptr) -> Ptr
+
+extern func malloc(size: Int) -> Ptr
+extern func free(ptr: Ptr) -> Void
+extern func strlen(str: String) -> Int
+extern func strcpy(dst: Ptr, src: String) -> Ptr
+extern func strcat(dst: Ptr, src: String) -> Ptr
+extern func strcmp(a: String, b: String) -> Int
+
+// File Operations — extern
+extern func tonto_read_file(path: String) -> String
+extern func tonto_write_file(path: String, content: String) -> Int
+extern func tonto_append_file(path: String, content: String) -> Int
+extern func tonto_file_exists(path: String) -> Int
+extern func tonto_file_size(path: String) -> Int
+extern func tonto_copy_file(src: String, dst: String) -> Int
+extern func tonto_move_file(src: String, dst: String) -> Int
+extern func tonto_create_dir(path: String) -> Int
+extern func tonto_remove_dir(path: String) -> Int
+extern func tonto_get_cwd() -> String
+extern func tonto_temp_dir() -> String

@@ -1,0 +1,7 @@
+[package]
+name = "fileops"
+version = "1.0.0"
+description = "File operations library for TontooLang"
+
+sources = ["File.tn"]
+native = ["fileops.c"]
