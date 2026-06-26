@@ -1,0 +1,6 @@
+[package]
+name = "TontooHTTP"
+version = "0.1.0"
+description = "HTTP/HTTPS Library for TontooLang"
+sources = ["TontooHTTP.tn"]
+native = ["curl.c"]

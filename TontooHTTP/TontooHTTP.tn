@@ -1,0 +1,51 @@
+// TontooHTTP - Complete HTTP/HTTPS Library for TontooLang
+// Supports all HTTP methods with header support
+
+// Core HTTP functions (extern - implemented in C with libcurl)
+extern func http_get(url: String) -> String
+extern func http_post(url: String, body: String) -> String
+extern func http_put(url: String, body: String) -> String
+extern func http_delete(url: String) -> String
+extern func http_patch(url: String, body: String) -> String
+extern func http_head(url: String) -> String
+extern func http_options(url: String) -> String
+extern func http_status(url: String) -> Int
+extern func http_request(method: String, url: String, body: String, headers: String) -> String
+
+// Header helper functions
+func http_header(key: String, value: String) -> String {
+    return key + ": " + value
+}
+
+func http_content_type_json() -> String {
+    return "Content-Type: application/json"
+}
+
+func http_accept_json() -> String {
+    return "Accept: application/json"
+}
+
+func http_authorization_bearer(token: String) -> String {
+    return "Authorization: Bearer " + token
+}
+
+// Request with headers
+func http_get_with_headers(url: String, headers: String) -> String {
+    return http_request("GET", url, "", headers)
+}
+
+func http_post_with_headers(url: String, body: String, headers: String) -> String {
+    return http_request("POST", url, body, headers)
+}
+
+func http_put_with_headers(url: String, body: String, headers: String) -> String {
+    return http_request("PUT", url, body, headers)
+}
+
+func http_patch_with_headers(url: String, body: String, headers: String) -> String {
+    return http_request("PATCH", url, body, headers)
+}
+
+func http_delete_with_headers(url: String, headers: String) -> String {
+    return http_request("DELETE", url, "", headers)
+}
